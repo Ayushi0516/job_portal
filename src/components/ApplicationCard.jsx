@@ -1,5 +1,11 @@
 import React from "react";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
 import { Boxes, BriefcaseBusiness, Download, School } from "lucide-react";
 import {
   Select,
@@ -8,6 +14,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
+import useFetch from "@/hooks/use-fetch";
+import { BarLoader } from "react-spinners";
+import { updateApplicationStatus } from "@/api/apiApplications";
 const ApplicationCard = ({ application, isCandidate = false }) => {
   const handleDownload = () => {
     const link = document.createElement("a");
@@ -15,8 +24,20 @@ const ApplicationCard = ({ application, isCandidate = false }) => {
     link.target = "_blank";
     link.click();
   };
+  const { loading: loadingHiringStatus, fn: fnHiringStatus } = useFetch(
+    updateApplicationStatus,
+    {
+      job_id: application.job_id,
+    }
+  );
+
+  const handleStatusChange = (status) => {
+    fnHiringStatus(status).then(() => fnHiringStatus());
+  };
+
   return (
     <Card>
+      {loadingHiringStatus && <BarLoader width={"100%"} color="#36d7b7" />}
       <CardHeader>
         <CardTitle className="flex justify-between font-bold">
           {isCandidate
@@ -45,16 +66,16 @@ const ApplicationCard = ({ application, isCandidate = false }) => {
         </div>
         <hr />
       </CardContent>
-       <CardFooter className="flex justify-between">
+      <CardFooter className="flex justify-between">
         <span>{new Date(application?.created_at).toLocaleString()}</span>
-          {isCandidate ? (
+        {isCandidate ? (
           <span className="capitalize font-bold">
             Status: {application.status}
           </span>
         ) : (
           <Select
-            // onValueChange={handleStatusChange}
-            // defaultValue={application.status}
+            onValueChange={handleStatusChange}
+            defaultValue={application.status}
           >
             <SelectTrigger className="w-52">
               <SelectValue placeholder="Application Status" />
@@ -67,7 +88,7 @@ const ApplicationCard = ({ application, isCandidate = false }) => {
             </SelectContent>
           </Select>
         )}
-       </CardFooter>
+      </CardFooter>
     </Card>
   );
 };

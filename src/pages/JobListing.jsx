@@ -69,7 +69,7 @@ const clearFilters = () => {
     setCompany_id("");
     setLocation("");
   };
-  return <div>
+  return <div className="">
     <h1 className="gradient-title font-extrabold text-6xl sm:text-7xl text-center pb-8">Latest Jobs</h1>
 
       <form
@@ -90,7 +90,7 @@ const clearFilters = () => {
 {/* select tag */}
  <div className="flex flex-col sm:flex-row gap-3">
    <Select value={location} onValueChange={(value) => setLocation(value)}>
-          <SelectTrigger>
+          <SelectTrigger className={" w-full"}>
             <SelectValue placeholder="Filter by Location" />
           </SelectTrigger>
           <SelectContent>
@@ -110,7 +110,7 @@ const clearFilters = () => {
           value={company_id}
           onValueChange={(value) => setCompany_id(value)}
         >
-          <SelectTrigger>
+          <SelectTrigger className={" w-full"}>
             <SelectValue placeholder="Filter by Company" />
           </SelectTrigger>
           <SelectContent>
@@ -126,7 +126,8 @@ const clearFilters = () => {
           </SelectContent>
         </Select>
          <Button
-          className="sm:w-1/2"
+          // className="sm:w-1/2"
+          className="sm:w-1/4"
           variant="destructive"
           onClick={clearFilters}
         >
@@ -161,3 +162,4 @@ const clearFilters = () => {
 };
 
 export default JobListing;
+// user_36OKuBRLKhoHC4u3wXeH7RxeJdJ

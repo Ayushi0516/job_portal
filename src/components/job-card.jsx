@@ -1,11 +1,18 @@
-import { useUser } from '@clerk/clerk-react';
-import { Heart, MapPinIcon, Trash2Icon } from 'lucide-react';
-import React, { useEffect, useState } from 'react'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './ui/card';
-import { Link } from 'react-router-dom';
-import { Button } from './ui/button';
-import { saveJob } from '@/api/apiJobs';
-import useFetch from '@/hooks/use-fetch';
+import { useUser } from "@clerk/clerk-react";
+import { Heart, MapPinIcon, Trash2Icon } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
+import { deleteJob, saveJob } from "@/api/apiJobs";
+import useFetch from "@/hooks/use-fetch";
+import { BarLoader } from "react-spinners";
 
 const JobCard = ({
   job,
@@ -16,14 +23,14 @@ const JobCard = ({
   const [saved, setSaved] = useState(savedInit);
 
   const { user } = useUser();
-    const {
+  const {
     loading: loadingSavedJob,
     data: savedJob,
     fn: fnSavedJob,
   } = useFetch(saveJob);
-// }=useFetch(saveJob,{
-//   alreadysaved :saved,
-// })
+  // }=useFetch(saveJob,{
+  //   alreadysaved :saved,
+  // })
 
   const handleSaveJob = async () => {
     await fnSavedJob({
@@ -32,6 +39,9 @@ const JobCard = ({
     });
     onJobAction();
   };
+  const { loading: loadingDeleteJob, fn: fnDeleteJob } = useFetch(deleteJob, {
+    job_id: job.id,
+  });
 
   const handleDeleteJob = async () => {
     await fnDeleteJob();
@@ -41,23 +51,26 @@ const JobCard = ({
     if (savedJob !== undefined) setSaved(savedJob?.length > 0);
   }, [savedJob]);
 
-
   return (
-   <Card className="flex flex-col">
+    <Card className="flex flex-col">
+      {loadingDeleteJob && (
+        <BarLoader className="mt-4" width={"100%"} color="#36d7b7" />
+      )}
+
       <CardHeader className="flex">
-        <CardTitle className="flex justify-between font-bold">
+        <CardTitle className=" font-bold flex justify-between gap-10 ">
           {job.title}
           {isMyJob && (
             <Trash2Icon
               fill="red"
               size={18}
-              className="text-red-300 cursor-pointer"
-              // onClick={handleDeleteJob}
+              className="text-red-300 cursor-pointer items-center "
+              onClick={handleDeleteJob}
             />
           )}
         </CardTitle>
       </CardHeader>
-       <CardContent className="flex flex-col gap-4 flex-1">
+      <CardContent className="flex flex-col gap-4 flex-1">
         <div className="flex justify-between">
           {job.company && <img src={job.company.logo_url} className="h-6" />}
           <div className="flex gap-2 items-center">
@@ -67,7 +80,7 @@ const JobCard = ({
         <hr />
         {job.description.substring(0, job.description.indexOf("."))}.
       </CardContent>
-       <CardFooter className="flex gap-2">
+      <CardFooter className="flex gap-2">
         <Link to={`/job/${job.id}`} className="flex-1">
           <Button variant="secondary" className="w-full">
             More Details
@@ -88,8 +101,8 @@ const JobCard = ({
           </Button>
         )}
       </CardFooter>
-   </Card>
-  )
-}
+    </Card>
+  );
+};
 
-export default JobCard
+export default JobCard;

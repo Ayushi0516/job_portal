@@ -36,14 +36,14 @@ const LandingPage = () => {
           Explore thousands of job listings or find the perfect candidate
         </p>
       </section>
-        <div className="flex gap-6 justify-center">
+        <div className="flex gap-6 justify-center ">
            <Link to={"/jobs"}>
-          <Button variant="blue" size="xl">
+          <Button variant="blue" size="xl" className="cursor-pointer">
             Find Jobs
           </Button>
         </Link>
         <Link to={"/post-job"}>
-          <Button variant="destructive" size="xl">
+          <Button variant="destructive" size="xl" className="cursor-pointer">
             Post a Job
           </Button>
         </Link>
@@ -87,7 +87,7 @@ const LandingPage = () => {
           </CardContent>
         </Card>
       </section>
-       <Accordion type="multiple" className="w-full">
+       <Accordion type="multiple" className="w-full cursor-pointer">
         {faqs.map((faq, index) => (
           <AccordionItem key={index} value={`item-${index + 1}`}>
             <AccordionTrigger>{faq.question}</AccordionTrigger>

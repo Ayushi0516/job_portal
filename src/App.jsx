@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         element: (
            <ProtectedRoute>
             <PostJob />
-           </ProtectedRoute>
+            </ProtectedRoute>
         ),
       },
       {

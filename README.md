@@ -1,16 +1,31 @@
-# React + Vite
+# JOB PORTAL (HIRRED)
+Hirred is a modern job portal designed to simplify the hiring process for both job seekers and recruiters. Our platform connects talented individuals with the right opportunities while giving employers powerful tools to find and manage the best candidates efficiently.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
 
-Currently, two official plugins are available:
+ For job seekers, Hirred offers a seamless experience to:
+ * Create and manage a professional profile
+* Explore job opportunities across multiple domains
+*Save jobs for later and apply with ease
+*Track applications in one place
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+For admins and recruiters, Hirred provides a dedicated dashboard to:
 
-## React Compiler
+*Post and manage job listings
+*Review candidate profiles and applications
+*Shortlist and select suitable candidates
+*Streamline the entire hiring workflow
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+[![My Skills](https://skillicons.dev/icons?i=react,supabase,js,clerk,shadcn,tailwindcss,)](https://skillicons.dev) 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## snapshots
+
+
+  ## Let's Connect
+  Thank you for using Hirred! If you have any questions, encounter issues, or want to provide feedback, please don't hesitate to contact me. 
+  
+  [![My Skills](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/ayushi-gupta-b98676236/)
+  [![My Skills](https://skillicons.dev/icons?i=instagram)](https://www.instagram.com/_arushi_gupta/)
+[![My Skills](https://skillicons.dev/icons?i=github)](https://github.com/Ayushi0516)

@@ -6,8 +6,10 @@ Hirred is a modern job portal designed to simplify the hiring process for both j
  For job seekers, Hirred offers a seamless experience to:
  * Create and manage a professional profile
 * Explore job opportunities across multiple domains
-*Save jobs for later and apply with ease
-*Track applications in one place
+  
+* Save jobs for later and apply with ease
+  
+* Track applications in one place
 
 For admins and recruiters, Hirred provides a dedicated dashboard to:
 
@@ -18,7 +20,7 @@ For admins and recruiters, Hirred provides a dedicated dashboard to:
 
 ## Tech Stack
 
-[![My Skills](https://skillicons.dev/icons?i=react,supabase,js,clerk,shadcn,tailwindcss,)](https://skillicons.dev) 
+[![My Skills](https://skillicons.dev/icons?i=react,supabase,js,auth0,tailwindcss,)](https://skillicons.dev) 
 
 ## snapshots
 

@@ -20,7 +20,7 @@ For admins and recruiters, Hirred provides a dedicated dashboard to:
 
 ## Tech Stack
 
-[![My Skills](https://skillicons.dev/icons?i=react,supabase,js,auth0,tailwindcss,)](https://skillicons.dev) 
+[![My Skills](https://skillicons.dev/icons?i=react,supabase,js,tailwindcss,)](https://skillicons.dev) 
 
 ## snapshots
 
